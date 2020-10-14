@@ -1,0 +1,51 @@
+.auth {
+  position: absolute;
+  width: 570px;
+  height: 457px;
+  left: 435px;
+  top: 171px;
+  background: #ffffff;
+  border: 1px solid #ababab;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.auth p {
+  position: absolute;
+  height: 29px;
+  left: 45%;
+  right: 45.28%;
+  top: 75px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.auth-button {
+  position: absolute;
+  width: 457px;
+  height: 148px;
+  margin: 154px 57px 155px 56px;
+}
+
+.auth-button button {
+  outline: none;
+  position: absolute;
+  width: 457px;
+  height: 51px;
+  background: #ffffff;
+  border: 1px solid #c7c7c7;
+  box-sizing: border-box;
+  border-radius: 57px;
+}
+
+.auth img {
+  margin: 165px 476px 200.26px 63px;
+  position: absolute;
+  width: 31px;
+  height: 31.74px;
+  z-index: 1;
+}

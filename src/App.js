@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useState } from "react";
+import "./App.css";
+import Routes from "./components/Routes/Routes";
+
+export const AuthContext = createContext();
+export const ServiceContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState(false);
+  const [servicesInfo, setServicesInfo] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthContext.Provider value={[loggedInUser, setLoggedInUser]}>
+        <ServiceContext.Provider value={[servicesInfo, setServicesInfo]}>
+          <Routes />
+        </ServiceContext.Provider>
+      </AuthContext.Provider>
     </div>
   );
 }
