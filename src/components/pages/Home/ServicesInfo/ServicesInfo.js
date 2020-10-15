@@ -4,6 +4,7 @@ import ServicesInfoCard from "../ServicesInfoCard/ServicesInfoCard";
 import Loading from "../../../utilities/Loading";
 import { ServiceContext } from "../../../../App";
 import { Link } from "react-router-dom";
+import SingleServiceInfo from "../SingleServiceInfo/SingleServiceInfo";
 
 const ServicesInfo = () => {
   const [servicesInfo, setServicesInfo] = useContext(ServiceContext);
@@ -24,29 +25,27 @@ const ServicesInfo = () => {
   }, [setServicesInfo]);
 
   return (
-    <section className="services services-container mt-5">
-      <div className="text-center">
-        <h2>
-          Provide awesome <span style={{ color: "#7AB259" }}>services</span>
-        </h2>
-      </div>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <div className="d-flex justify-content-center">
-          <div className="w-75 row mt-5 pt-5">
+    <>
+      <div className="mt-5">
+        <div className="text-center">
+          <h2>
+            Provide awesome <span style={{ color: "#7AB259" }}>services</span>
+          </h2>
+        </div>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div className="row">
             {servicesInfo.map((info) => (
-              <Link to={`/order/${info.title}/${info.description}`}>
-                <ServicesInfoCard
-                  info={info}
-                  key={info.title}
-                ></ServicesInfoCard>
-              </Link>
+              <ServicesInfoCard
+                info={info}
+                key={Math.random()}
+              ></ServicesInfoCard>
             ))}
           </div>
-        </div>
-      )}
-    </section>
+        )}
+      </div>
+    </>
   );
 };
 

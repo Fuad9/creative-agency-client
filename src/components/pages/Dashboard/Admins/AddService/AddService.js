@@ -54,6 +54,7 @@ const AddService = () => {
               type="text"
               className="form-control"
               name="title"
+              placeholder="Enter title"
             />
           </div>
           <div className="form-group">
@@ -65,7 +66,7 @@ const AddService = () => {
               id=""
               cols="30"
               rows="10"
-              placeholder="Project Details"
+              placeholder="Enter Details"
             ></input>
           </div>
           <div className="form-group">
