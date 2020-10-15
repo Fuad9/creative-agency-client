@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "../../../utilities/Loading";
 import CustomerReviewCard from "../CustomerReviewCard/CustomerReviewCard";
 
-const CustomerReview = () => {
+const AllCustomerReview = () => {
   const [reviewsInfo, setReviewsInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -55,4 +55,4 @@ const CustomerReview = () => {
   );
 };
 
-export default CustomerReview;
+export default AllCustomerReview;

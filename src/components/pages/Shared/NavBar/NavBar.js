@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav, Navbar, Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import brandLogo from "../../../../images/logos/logo.png";
 
 const NavBar = () => {
@@ -43,7 +43,9 @@ const NavBar = () => {
             Contact Us
           </NavLink>
         </Nav>
-        <Button className="btn-brand">Login</Button>
+        <Link to="/login">
+          <Button className="btn-brand">Login</Button>
+        </Link>
       </Navbar.Collapse>
     </Navbar>
   );

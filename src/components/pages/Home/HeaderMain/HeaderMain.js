@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import headerImg from "../../../../images/logos/Frame.png";
+import "./HeaderMain.css";
 
 const HeaderMain = () => {
   return (
-    <main style={{ height: "600px" }} className="row d-flex align-items-center">
+    <main
+      style={{ height: "600px" }}
+      className="row d-flex align-items-center header-bg"
+    >
       <div className="col-md-4 col-sm-6 col-12 offset-md-1">
         <h1 style={{ color: "#111430" }}>
           Let's Grow Your

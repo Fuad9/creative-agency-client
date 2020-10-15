@@ -8,6 +8,20 @@ export const initializeLoginFramework = () => {
   }
 };
 
+// to configure JWT token
+const storeAuthToken = () => {
+  firebase
+    .auth()
+    .currentUser.getIdToken(true)
+    .then((idToken) => {
+      sessionStorage.setItem("token", idToken);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+// handling google sign in
 export const handleGoogleSignIn = () => {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   return firebase
@@ -25,17 +39,5 @@ export const handleGoogleSignIn = () => {
     .catch((err) => {
       console.log(err);
       console.log(err.message);
-    });
-};
-
-const storeAuthToken = () => {
-  firebase
-    .auth()
-    .currentUser.getIdToken(true)
-    .then((idToken) => {
-      sessionStorage.setItem("token", idToken);
-    })
-    .catch((error) => {
-      console.log(error);
     });
 };

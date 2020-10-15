@@ -1,0 +1,11 @@
+.file-upload {
+  width: 271px;
+  height: 50px;
+  left: 643px;
+  top: 521px;
+  background: #deffed;
+  border: 1px solid #009444;
+  box-sizing: border-box;
+  border-radius: 5px;
+  cursor: pointer;
+}

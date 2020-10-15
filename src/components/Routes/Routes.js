@@ -5,6 +5,12 @@ import Login from "../pages/Auth/Login";
 import Home from "../pages/Home/Home/Home";
 import Dashboard from "../../components/pages/Dashboard/Dashboard/Dashboard";
 import CustomerOrder from "../pages/Dashboard/Customers/CustomerOrder/CustomerOrder";
+import CustomerServiceList from "../pages/Dashboard/Customers/CustomerServiceList/CustomerServiceList";
+import OrdersData from "../pages/Dashboard/Admins/OrdersData/OrdersData";
+import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
+import AddService from "../pages/Dashboard/Admins/AddService/AddService";
+import MakeAdmin from "../pages/Dashboard/Admins/MakeAdmin/MakeAdmin";
+import CustomerReview from "../pages/Dashboard/Customers/CustomerReview/CustomerReview";
 
 const Routes = () => {
   return (
@@ -12,8 +18,17 @@ const Routes = () => {
       <Switch>
         <Route path="/home" component={Home} />
         <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/order/:serviceName" component={CustomerOrder} />
+        <PrivateRoute path="/dashboard">
+          <Dashboard />
+        </PrivateRoute>
+        <PrivateRoute path="/order/:serviceName/:serviceDetails">
+          <CustomerOrder />
+        </PrivateRoute>
+        <Route path="/customerService" component={CustomerServiceList} />
+        <Route path="/addReview" component={CustomerReview} />
+        <Route path="/allServices" component={OrdersData} />
+        <Route path="/addService" component={AddService} />
+        <Route path="/makeAdmin" component={MakeAdmin} />
         <Route exact path="/" component={Home} />;
         <Route path="*" component={NotFound} />
       </Switch>

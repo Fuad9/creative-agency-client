@@ -1,18 +1,24 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { AuthContext } from "../../../../../App";
+import { AuthContext, ServiceImageContext } from "../../../../../App";
 import Sidebar from "../../Sidebar/Sidebar";
+import fileUpload from "../../../../../images/icons/cloud-upload-outline 1.png";
+import "./CustomerOrder.css";
+import { useForm } from "react-hook-form";
 
 const CustomerOrder = () => {
+  // const { register, handleSubmit } = useForm();
   const history = useHistory();
-  const { serviceName } = useParams();
+  const { serviceName, serviceDetails } = useParams();
+  const [serviceImage, setServiceImage] = useContext(ServiceImageContext);
   const [loggedInUser] = useContext(AuthContext);
   const [info, setInfo] = useState({});
   const [file, setFile] = useState(null);
 
-  const [description, setDescription] = useState({
-    description: "",
-  });
+  // to set service name to setServiceImage in order to consume it from customerServieList
+  setServiceImage(serviceName);
+
+  // console.log(serviceImage);
 
   const handleBlur = (e) => {
     const newInfo = { ...info };
@@ -25,28 +31,24 @@ const CustomerOrder = () => {
     setFile(newFile);
   };
 
-  const handleDescription = (e) => {
-    const newDescription = { ...description };
-    newDescription.description = e.target.value;
-    setDescription(newDescription);
-  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", info.name);
+    formData.append("email", info.email);
+    formData.append("service", info.service);
+    formData.append("description", info.description);
+    formData.append("price", info.price);
+    formData.append("file", file);
 
-  const handleSubmit = () => {
-    const newTask = {
-      ...loggedInUser,
-      ...info,
-      ...description,
-      ...file,
-    };
     fetch("http://localhost:5000/addOrders", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newTask),
+      body: formData,
     })
       .then((res) => res.json())
       .then((result) => {
         if (result === true) {
-          history.push("/");
+          history.push("/customerService");
         }
       });
   };
@@ -64,15 +66,15 @@ const CustomerOrder = () => {
             <input
               onBlur={handleBlur}
               type="text"
-              className="form-control"
               name="name"
+              defaultValue={loggedInUser.name}
               placeholder="Your name / company’s name"
             />
           </div>
           <div className="form-group">
             <input
+              onBlur={handleBlur}
               type="email"
-              className="form-control"
               name="email"
               defaultValue={loggedInUser.email}
               placeholder="Your email address"
@@ -82,7 +84,6 @@ const CustomerOrder = () => {
             <input
               onBlur={handleBlur}
               type="text"
-              className="form-control"
               name="service"
               defaultValue={serviceName}
             />
@@ -91,30 +92,40 @@ const CustomerOrder = () => {
             <input
               onBlur={handleBlur}
               type="text"
-              className="form-control"
-              name="price"
-              placeholder="price"
-            />
-          </div>
-          <div className="form-group">
-            <textarea
-              onBlur={handleDescription}
               name="description"
-              className="form-control"
+              defaultValue={serviceDetails}
               id=""
               cols="30"
               rows="10"
               placeholder="Project Details"
-            ></textarea>
+            ></input>
           </div>
-          <div className="form-group">
-            <input
-              onChange={handleFileChange}
-              type="file"
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Picture"
-            />
+          <div className="d-flex">
+            <div className="form-group">
+              <input
+                onBlur={handleBlur}
+                type="text"
+                name="price"
+                placeholder="price"
+              />
+            </div>
+            <div className="form-group">
+              <label className="file-upload p-2 text-center">
+                <input
+                  onChange={handleFileChange}
+                  style={{ display: "none" }}
+                  type="file"
+                  id="exampleInputPassword1"
+                  placeholder="Picture"
+                />
+                <img
+                  src={fileUpload}
+                  alt=""
+                  style={{ width: "24px", height: "24px" }}
+                />{" "}
+                upload project file
+              </label>
+            </div>
           </div>
           <button type="submit" className="btn btn-brand">
             Submit

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,6 +14,7 @@ import {
 import { faFileAlt } from "@fortawesome/free-regular-svg-icons";
 import { AuthContext, ServiceContext } from "../../../../App";
 import orderIcon from "../../../../images/icons/shopping-cart.png";
+import logo from "../../../../images/logos/logo.png";
 
 const Sidebar = () => {
   const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
@@ -37,39 +38,42 @@ const Sidebar = () => {
     >
       <ul className="list-unstyled">
         <li>
+          <Link to="/home">
+            <img src={logo} alt="" className="w-100" />
+          </Link>
+        </li>
+        <li>
           <NavLink to="/order" activeStyle={{ color: "green" }}>
             <img src={orderIcon} alt="" /> <span>Order</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/" className="text-white">
+          <NavLink to="/customerService" className="text-white">
             <FontAwesomeIcon icon={faHome} /> <span>Service List</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/" className="text-white">
+          <NavLink to="/addReview" className="text-white">
             <FontAwesomeIcon icon={faHome} /> <span>Review</span>
           </NavLink>
         </li>
-        {isAdmin && (
-          <div>
-            <li>
-              <NavLink to="/allPatients" className="text-white">
-                <FontAwesomeIcon icon={faCalendar} /> <span>Service List</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/patient" className="text-white">
-                <FontAwesomeIcon icon={faUsers} /> <span>Add Service</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/prescriptions" className="text-white">
-                <FontAwesomeIcon icon={faFileAlt} /> <span>Make Admin</span>
-              </NavLink>
-            </li>
-          </div>
-        )}
+        <div>
+          <li>
+            <NavLink to="/allServices" className="text-white">
+              <FontAwesomeIcon icon={faCalendar} /> <span>Service List</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/addService" className="text-white">
+              <FontAwesomeIcon icon={faUsers} /> <span>Add Service</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/makeAdmin" className="text-white">
+              <FontAwesomeIcon icon={faFileAlt} /> <span>Make Admin</span>
+            </NavLink>
+          </li>
+        </div>
       </ul>
       <div>
         <NavLink to="/" className="text-white">
@@ -81,3 +85,24 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+//this will be applied only for admins
+// {isAdmin && (
+//   <div>
+//     <li>
+//       <NavLink to="/allServices" className="text-white">
+//         <FontAwesomeIcon icon={faCalendar} /> <span>Service List</span>
+//       </NavLink>
+//     </li>
+//     <li>
+//       <NavLink to="/patient" className="text-white">
+//         <FontAwesomeIcon icon={faUsers} /> <span>Add Service</span>
+//       </NavLink>
+//     </li>
+//     <li>
+//       <NavLink to="/prescriptions" className="text-white">
+//         <FontAwesomeIcon icon={faFileAlt} /> <span>Make Admin</span>
+//       </NavLink>
+//     </li>
+//   </div>
+// )}

@@ -3,6 +3,7 @@ import Axios from "axios";
 import ServicesInfoCard from "../ServicesInfoCard/ServicesInfoCard";
 import Loading from "../../../utilities/Loading";
 import { ServiceContext } from "../../../../App";
+import { Link } from "react-router-dom";
 
 const ServicesInfo = () => {
   const [servicesInfo, setServicesInfo] = useContext(ServiceContext);
@@ -35,7 +36,12 @@ const ServicesInfo = () => {
         <div className="d-flex justify-content-center">
           <div className="w-75 row mt-5 pt-5">
             {servicesInfo.map((info) => (
-              <ServicesInfoCard info={info} key={info.title}></ServicesInfoCard>
+              <Link to={`/order/${info.title}/${info.description}`}>
+                <ServicesInfoCard
+                  info={info}
+                  key={info.title}
+                ></ServicesInfoCard>
+              </Link>
             ))}
           </div>
         </div>
