@@ -18,8 +18,6 @@ const CustomerOrder = () => {
   // to set service name to setServiceImage in order to consume it from customerServieList
   setServiceImage(serviceName);
 
-  // console.log(serviceImage);
-
   const handleBlur = (e) => {
     const newInfo = { ...info };
     newInfo[e.target.name] = e.target.value;
@@ -62,13 +60,17 @@ const CustomerOrder = () => {
       >
         <h5 className="text-brand">Order</h5>
         <form onSubmit={handleSubmit}>
+          <h5 className="text-danger">
+            * Please fill out all the input fields and upload an image
+          </h5>
           <div className="form-group">
             <input
               onBlur={handleBlur}
               type="text"
               name="name"
-              defaultValue={loggedInUser.name}
+              className="form-control"
               placeholder="Your name / company’s name"
+              required
             />
           </div>
           <div className="form-group">
@@ -76,8 +78,9 @@ const CustomerOrder = () => {
               onBlur={handleBlur}
               type="email"
               name="email"
-              defaultValue={loggedInUser.email}
+              className="form-control"
               placeholder="Your email address"
+              required
             />
           </div>
           <div className="form-group">
@@ -85,7 +88,8 @@ const CustomerOrder = () => {
               onBlur={handleBlur}
               type="text"
               name="service"
-              defaultValue={serviceName}
+              className="form-control"
+              required
             />
           </div>
           <div className="form-group">
@@ -93,11 +97,11 @@ const CustomerOrder = () => {
               onBlur={handleBlur}
               type="text"
               name="description"
-              defaultValue={serviceDetails}
-              id=""
+              className="form-control"
               cols="30"
               rows="10"
               placeholder="Project Details"
+              required
             ></input>
           </div>
           <div className="d-flex">
@@ -106,7 +110,9 @@ const CustomerOrder = () => {
                 onBlur={handleBlur}
                 type="text"
                 name="price"
+                className="form-control"
                 placeholder="price"
+                required
               />
             </div>
             <div className="form-group">
@@ -115,8 +121,10 @@ const CustomerOrder = () => {
                   onChange={handleFileChange}
                   style={{ display: "none" }}
                   type="file"
+                  className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Picture"
+                  required
                 />
                 <img
                   src={fileUpload}

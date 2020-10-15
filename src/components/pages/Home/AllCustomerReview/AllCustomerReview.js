@@ -1,24 +1,16 @@
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../../App";
 // import { CustomerReviewData } from "../../../../fakedata/CustomerReviewData";
 import Loading from "../../../utilities/Loading";
 import CustomerReviewCard from "../CustomerReviewCard/CustomerReviewCard";
+import SingleCustomerReview from "../SingleCustomerReview/SingleCustomerReview";
 
 const AllCustomerReview = () => {
   const [reviewsInfo, setReviewsInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  //   // to insert all data
-  //   const handleAdd = () => {
-  //     fetch("http://localhost:5000/addReviews", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(CustomerReviewData),
-  //     });
-  //   };
-
+  // to show all reviews
   useEffect(() => {
     const getData = async () => {
       try {
@@ -34,7 +26,7 @@ const AllCustomerReview = () => {
   }, []);
 
   return (
-    <section className="blogs my-5">
+    <section className="my-5">
       <div className="container">
         <div className="section-header text-center">
           <h2>
@@ -51,6 +43,7 @@ const AllCustomerReview = () => {
           </div>
         )}
       </div>
+      <SingleCustomerReview />
     </section>
   );
 };

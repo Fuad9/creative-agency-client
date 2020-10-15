@@ -11,6 +11,7 @@ import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 import AddService from "../pages/Dashboard/Admins/AddService/AddService";
 import MakeAdmin from "../pages/Dashboard/Admins/MakeAdmin/MakeAdmin";
 import CustomerReview from "../pages/Dashboard/Customers/CustomerReview/CustomerReview";
+import SingleCustomerReview from "../pages/Home/SingleCustomerReview/SingleCustomerReview";
 
 const Routes = () => {
   return (
@@ -21,12 +22,14 @@ const Routes = () => {
         <PrivateRoute path="/dashboard">
           <Dashboard />
         </PrivateRoute>
-        <PrivateRoute path="/order/:serviceName/:serviceDetails">
+        <PrivateRoute path="/order">
           <CustomerOrder />
         </PrivateRoute>
         <Route path="/customerService" component={CustomerServiceList} />
-        <Route path="/addReview" component={CustomerReview} />
         <Route path="/allServices" component={OrdersData} />
+        <PrivateRoute path="/addReview">
+          <CustomerReview />
+        </PrivateRoute>
         <Route path="/addService" component={AddService} />
         <Route path="/makeAdmin" component={MakeAdmin} />
         <Route exact path="/" component={Home} />;

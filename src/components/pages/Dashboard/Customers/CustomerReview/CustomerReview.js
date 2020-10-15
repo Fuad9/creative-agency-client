@@ -4,8 +4,8 @@ import { AuthContext } from "../../../../../App";
 import Sidebar from "../../Sidebar/Sidebar";
 
 const CustomerReview = () => {
+  const [loggedInUser] = useContext(AuthContext);
   const history = useHistory();
-  const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
   const [info, setInfo] = useState({});
 
   const handleBlur = (e) => {
@@ -18,11 +18,11 @@ const CustomerReview = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", info.name);
-    formData.append("email", info.email);
+    formData.append("image", loggedInUser.photo);
     formData.append("company", info.company);
     formData.append("description", info.description);
 
-    fetch("http://localhost:5000/addReviews", {
+    fetch("http://localhost:5000/addSingleReview", {
       method: "POST",
       body: formData,
     })
@@ -41,7 +41,7 @@ const CustomerReview = () => {
         className="col-md-10 p-4 pr-5"
         style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}
       >
-        <h5 className="text-brand">Order</h5>
+        <h5 className="text-brand">Add Review</h5>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
@@ -67,7 +67,6 @@ const CustomerReview = () => {
               type="text"
               name="description"
               className="form-control"
-              id=""
               cols="30"
               rows="10"
               placeholder="Project Details"
