@@ -48,7 +48,7 @@ const CustomerOrder = () => {
 
     setFormDataInfo(formData);
 
-    fetch("http://localhost:5000/addOrders", {
+    fetch("https://gentle-sands-61587.herokuapp.com/addOrders", {
       method: "POST",
       body: formData,
     })
