@@ -13,8 +13,8 @@
 .auth p {
   position: absolute;
   height: 29px;
-  left: 45%;
-  right: 45.28%;
+  left: 40%;
+  /* right: %; */
   top: 75px;
   font-family: Montserrat;
   font-style: normal;
@@ -27,7 +27,7 @@
 .auth-button {
   position: absolute;
   width: 457px;
-  height: 148px;
+  height: 160px;
   margin: 154px 57px 155px 56px;
 }
 

@@ -27,7 +27,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className="sidebar d-flex flex-column justify-content-between col-3 col-sm-3 col-md-2 py-5 px-4"
+      className="sidebar d-flex flex-column justify-content-between col-3 col-sm-3 col-md-2 px-4"
       style={{ height: "100vh" }}
     >
       <ul className="list-unstyled">
@@ -36,22 +36,7 @@ const Sidebar = () => {
             <img src={logo} alt="" className="w-100" />
           </Link>
         </li>
-        <li>
-          <NavLink to="/order" activeStyle={{ color: "green" }}>
-            <img src={orderIcon} alt="" /> <span>Order</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/customerService" activeStyle={{ color: "green" }}>
-            <img src={serviceIcon} alt="" /> <span>Service List</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/addReview" activeStyle={{ color: "green" }}>
-            <img src={reviewIcon} alt="" /> <span>Review</span>
-          </NavLink>
-        </li>
-        {isAdmin && (
+        {isAdmin ? (
           <div>
             <li>
               <NavLink to="/allServices" activeStyle={{ color: "green" }}>
@@ -66,6 +51,24 @@ const Sidebar = () => {
             <li>
               <NavLink to="/makeAdmin" activeStyle={{ color: "green" }}>
                 <img src={peopleIcon} alt="" /> <span>Make Admin</span>
+              </NavLink>
+            </li>
+          </div>
+        ) : (
+          <div>
+            <li>
+              <NavLink to="/order" activeStyle={{ color: "green" }}>
+                <img src={orderIcon} alt="" /> <span>Order</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/customerService" activeStyle={{ color: "green" }}>
+                <img src={serviceIcon} alt="" /> <span>Service List</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/addReview" activeStyle={{ color: "green" }}>
+                <img src={reviewIcon} alt="" /> <span>Review</span>
               </NavLink>
             </li>
           </div>

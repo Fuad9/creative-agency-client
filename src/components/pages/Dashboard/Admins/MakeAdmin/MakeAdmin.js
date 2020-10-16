@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../../../../App";
 import Sidebar from "../../Sidebar/Sidebar";
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
   const history = useHistory();
+  const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
 
   const handleBlur = (e) => {
     const newInfo = { ...email };
@@ -34,22 +36,33 @@ const MakeAdmin = () => {
       <section className="container-fluid row">
         <Sidebar />
         <div
-          className="col-md-10 p-4 pr-5 d-flex"
-          style={{ position: "absolute", right: 0, backgroundColor: "#E5E5E5" }}
+          className="col-8 col-md-10 col-lg-10 p-4 pr-5"
+          style={{
+            position: "absolute",
+            right: 0,
+            backgroundColor: "#E5E5E5",
+            height: "100vh",
+          }}
         >
-          <h5 className="text-brand">Email</h5>
-          <form onSubmit={handleSubmit}>
-            <input
-              onBlur={handleBlur}
-              type="email"
-              className="form-control"
-              name="email"
-              placeholder="join@gmail.com"
-            />
-            <button type="submit" className="btn btn-success">
-              Submit
-            </button>
-          </form>
+          <div className="d-flex justify-content-between">
+            <h5 className="text-brand">Add Services</h5>
+            <h4>{loggedInUser.name}</h4>
+          </div>
+          <div>
+            <h6 htmlFor="input">Email</h6>
+            <form onSubmit={handleSubmit} className="d-flex">
+              <input
+                onBlur={handleBlur}
+                type="email"
+                className="form-control"
+                name="email"
+                placeholder="join@gmail.com"
+              />
+              <button type="submit" className="btn btn-success">
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </>

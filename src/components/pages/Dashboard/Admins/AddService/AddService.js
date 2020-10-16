@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Sidebar from "../../Sidebar/Sidebar";
 import fileUpload from "../../../../../images/icons/cloud-upload-outline 1.png";
+import { AuthContext } from "../../../../../App";
 
 const AddService = () => {
   const history = useHistory();
   // const { serviceName } = useParams();
-  // const [loggedInUser] = useContext(AuthContext);
+  const [loggedInUser] = useContext(AuthContext);
   const [info, setInfo] = useState({});
   const [file, setFile] = useState(null);
 
@@ -47,7 +48,10 @@ const AddService = () => {
         className="col-8 col-md-10 col-lg-10 p-4 pr-5"
         style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}
       >
-        <h5 className="text-brand">Add Services</h5>
+        <div className="d-flex justify-content-between">
+          <h5 className="text-brand">Add Services</h5>
+          <h4>{loggedInUser.name}</h4>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-lg-5">

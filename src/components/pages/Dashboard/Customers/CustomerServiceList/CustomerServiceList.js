@@ -13,7 +13,7 @@ const CustomerServiceList = () => {
       try {
         setIsLoading(true);
         const response = await Axios.get(
-          "https://gentle-sands-61587.herokuapp.com/showOrders"
+          "https://gentle-sands-61587.herokuapp.com/showIndividualOrders"
         );
         setShowOrdersInfo(response.data);
         setIsLoading(false);

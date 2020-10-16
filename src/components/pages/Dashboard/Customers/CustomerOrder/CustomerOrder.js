@@ -55,6 +55,7 @@ const CustomerOrder = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result === true) {
+          alert("Your Order Placed Seccessfully");
           history.push("/customerService");
         }
       });
