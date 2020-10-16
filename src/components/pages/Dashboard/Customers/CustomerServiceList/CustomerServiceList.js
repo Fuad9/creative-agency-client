@@ -1,6 +1,6 @@
 import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { ServiceContext, ServiceImageContext } from "../../../../../App";
+import { ServiceContext } from "../../../../../App";
 import Loading from "../../../../utilities/Loading";
 import Sidebar from "../../Sidebar/Sidebar";
 
@@ -13,7 +13,7 @@ const CustomerServiceList = () => {
       try {
         setIsLoading(true);
         const response = await Axios.get(
-          "https://gentle-sands-61587.herokuapp.com/showIndividualOrders"
+          "https://gentle-sands-61587.herokuapp.com/showOrders"
         );
         setShowOrdersInfo(response.data);
         setIsLoading(false);
