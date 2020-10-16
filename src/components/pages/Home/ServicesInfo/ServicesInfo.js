@@ -14,7 +14,9 @@ const ServicesInfo = () => {
     const getData = async () => {
       try {
         setIsLoading(true);
-        const response = await Axios.get("http://localhost:5000/showServices");
+        const response = await Axios.get(
+          "https://gentle-sands-61587.herokuapp.com/showServices"
+        );
         setServicesInfo(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -53,7 +55,7 @@ export default ServicesInfo;
 
 // // to insert all data
 // const handleTasks = () => {
-//   fetch("http://localhost:5000/addServices", {
+//   fetch("https://gentle-sands-61587.herokuapp.com/addServices", {
 //     method: "POST",
 //     headers: {
 //       "Content-Type": "application/json",

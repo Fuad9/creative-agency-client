@@ -25,13 +25,21 @@ const Routes = () => {
         <PrivateRoute path="/order">
           <CustomerOrder />
         </PrivateRoute>
-        <Route path="/customerService" component={CustomerServiceList} />
-        <Route path="/allServices" component={OrdersData} />
+        <PrivateRoute path="/customerService">
+          <CustomerServiceList />
+        </PrivateRoute>
         <PrivateRoute path="/addReview">
           <CustomerReview />
         </PrivateRoute>
-        <Route path="/addService" component={AddService} />
-        <Route path="/makeAdmin" component={MakeAdmin} />
+        <PrivateRoute path="/allServices">
+          <OrdersData />
+        </PrivateRoute>
+        <PrivateRoute path="/addService">
+          <AddService />
+        </PrivateRoute>
+        <PrivateRoute path="/makeAdmin">
+          <MakeAdmin />
+        </PrivateRoute>
         <Route exact path="/" component={Home} />;
         <Route path="*" component={NotFound} />
       </Switch>

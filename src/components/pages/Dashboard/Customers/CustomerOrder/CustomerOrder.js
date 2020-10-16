@@ -15,6 +15,12 @@ const CustomerOrder = () => {
   const [info, setInfo] = useState({});
   const [file, setFile] = useState(null);
 
+  // to trigger status info with order form
+  const [formDataInfo, setFormDataInfo] = useState({
+    formData: {},
+    status: "Pending",
+  });
+
   // to set service name to setServiceImage in order to consume it from customerServieList
   setServiceImage(serviceName);
 
@@ -31,6 +37,7 @@ const CustomerOrder = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(file);
     const formData = new FormData();
     formData.append("name", info.name);
     formData.append("email", info.email);
@@ -38,6 +45,8 @@ const CustomerOrder = () => {
     formData.append("description", info.description);
     formData.append("price", info.price);
     formData.append("file", file);
+
+    setFormDataInfo(formData);
 
     fetch("http://localhost:5000/addOrders", {
       method: "POST",
@@ -55,10 +64,13 @@ const CustomerOrder = () => {
     <section className="container-fluid row">
       <Sidebar></Sidebar>
       <div
-        className="col-md-10 p-4 pr-5"
+        className="col-8 col-md-10 col-lg-10 p-4 pr-5"
         style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}
       >
-        <h5 className="text-brand">Order</h5>
+        <div className="d-flex justify-content-between">
+          <h5 className="text-brand">Order</h5>
+          <h4>{loggedInUser.name}</h4>
+        </div>
         <form onSubmit={handleSubmit}>
           <h5 className="text-danger">
             * Please fill out all the input fields and upload an image
@@ -89,6 +101,7 @@ const CustomerOrder = () => {
               type="text"
               name="service"
               className="form-control"
+              placeholder="service name"
               required
             />
           </div>
@@ -104,7 +117,7 @@ const CustomerOrder = () => {
               required
             ></input>
           </div>
-          <div className="d-flex">
+          <div className="row">
             <div className="form-group">
               <input
                 onBlur={handleBlur}
@@ -115,7 +128,7 @@ const CustomerOrder = () => {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-group col-4">
               <label className="file-upload p-2 text-center">
                 <input
                   onChange={handleFileChange}

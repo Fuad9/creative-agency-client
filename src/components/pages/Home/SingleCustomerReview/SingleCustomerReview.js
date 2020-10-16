@@ -16,7 +16,7 @@ const SingleCustomerReview = () => {
       try {
         setIsLoading(true);
         const response = await Axios.get(
-          "http://localhost:5000/showSingleReview"
+          "https://gentle-sands-61587.herokuapp.com/showSingleReview"
         );
         setSingleReview(response.data);
         setIsLoading(false);

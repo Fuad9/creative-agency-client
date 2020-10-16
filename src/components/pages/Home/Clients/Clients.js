@@ -9,19 +9,19 @@ import "./Clients.css";
 const Clients = () => {
   return (
     <section className="row w-100 d-flex justify-content-center">
-      <div className="col-md-2">
+      <div className="col-4 col-md-2">
         <img className="img-fluid w-100 h-50" src={slack} alt="" />
       </div>
-      <div className="col-md-2">
+      <div className="col-4  col-md-2">
         <img className="img-fluid w-100 h-50" src={google} alt="" />
       </div>
-      <div className="col-md-2">
+      <div className="col-4  col-md-2">
         <img className="img-fluid w-100 h-50" src={uber} alt="" />
       </div>
-      <div className="col-md-2">
+      <div className="col-4  col-md-2">
         <img className="img-fluid w-100 h-50" src={netflix} alt="" />
       </div>
-      <div className="col-md-2">
+      <div className="col-4 col-md-2">
         <img className="img-fluid w-100 h-50" src={airbnb} alt="" />
       </div>
     </section>

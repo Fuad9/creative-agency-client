@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Sidebar from "../../Sidebar/Sidebar";
+import fileUpload from "../../../../../images/icons/cloud-upload-outline 1.png";
 
 const AddService = () => {
   const history = useHistory();
@@ -27,7 +28,7 @@ const AddService = () => {
     formData.append("description", info.description);
     formData.append("file", file);
 
-    fetch("http://localhost:5000/addServices", {
+    fetch("https://gentle-sands-61587.herokuapp.com/addServices", {
       method: "POST",
       body: formData,
     })
@@ -43,42 +44,56 @@ const AddService = () => {
     <section className="container-fluid row">
       <Sidebar></Sidebar>
       <div
-        className="col-md-10 p-4 pr-5"
+        className="col-8 col-md-10 col-lg-10 p-4 pr-5"
         style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}
       >
         <h5 className="text-brand">Add Services</h5>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <input
-              onBlur={handleBlur}
-              type="text"
-              className="form-control"
-              name="title"
-              placeholder="Enter title"
-            />
+          <div className="row">
+            <div className="col-lg-5">
+              <div className="form-group">
+                <input
+                  onBlur={handleBlur}
+                  type="text"
+                  className="form-control"
+                  name="title"
+                  placeholder="Enter title"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  onBlur={handleBlur}
+                  type="text"
+                  name="description"
+                  className="form-control"
+                  id=""
+                  cols="30"
+                  rows="10"
+                  placeholder="Enter Details"
+                ></input>
+              </div>
+            </div>
+            <div className="form-group col-4">
+              <label className="file-upload p-2 text-center">
+                <input
+                  onChange={handleFileChange}
+                  style={{ display: "none" }}
+                  type="file"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Picture"
+                  required
+                />
+                <img
+                  src={fileUpload}
+                  alt=""
+                  style={{ width: "24px", height: "24px" }}
+                />{" "}
+                upload project file
+              </label>
+            </div>
           </div>
-          <div className="form-group">
-            <input
-              onBlur={handleBlur}
-              type="text"
-              name="description"
-              className="form-control"
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="Enter Details"
-            ></input>
-          </div>
-          <div className="form-group">
-            <input
-              onChange={handleFileChange}
-              type="file"
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Picture"
-            />
-          </div>
-          <button type="submit" className="btn btn-success">
+          <button type="submit" className="btn btn-success ml-auto">
             Submit
           </button>
         </form>

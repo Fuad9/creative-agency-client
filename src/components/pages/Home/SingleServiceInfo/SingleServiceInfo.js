@@ -14,7 +14,7 @@ const SingleServiceInfo = () => {
       try {
         setIsLoading(true);
         const response = await Axios.get(
-          "http://localhost:5000/showSingleService"
+          "https://gentle-sands-61587.herokuapp.com/showSingleService"
         );
         setSingleServiceInfo(response.data);
         setIsLoading(false);
@@ -26,20 +26,27 @@ const SingleServiceInfo = () => {
   }, [setSingleServiceInfo]);
 
   return (
-    <div className="mt-5">
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <div className="row">
-          {singleServiceInfo.map((singleService) => (
-            <SingleServiceInfoCard
-              singleService={singleService}
-              key={Math.random()}
-            ></SingleServiceInfoCard>
-          ))}
+    <section className="services mt-5">
+      <div className="container">
+        <div className="text-center">
+          <h2>
+            Provide awesome <span style={{ color: "#7AB259" }}>services</span>
+          </h2>
         </div>
-      )}
-    </div>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div className="row my-3 mx-3">
+            {singleServiceInfo.map((singleService) => (
+              <SingleServiceInfoCard
+                singleService={singleService}
+                key={Math.random()}
+              ></SingleServiceInfoCard>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 
@@ -47,7 +54,7 @@ export default SingleServiceInfo;
 
 // // to insert all data
 // const handleTasks = () => {
-//   fetch("http://localhost:5000/addServices", {
+//   fetch("https://gentle-sands-61587.herokuapp.com/addServices", {
 //     method: "POST",
 //     headers: {
 //       "Content-Type": "application/json",

@@ -15,7 +15,9 @@ const AllCustomerReview = () => {
     const getData = async () => {
       try {
         setIsLoading(true);
-        const response = await Axios.get("http://localhost:5000/showReviews");
+        const response = await Axios.get(
+          "https://gentle-sands-61587.herokuapp.com/showReviews"
+        );
         setReviewsInfo(response.data);
         setIsLoading(false);
       } catch (error) {

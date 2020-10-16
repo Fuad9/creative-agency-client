@@ -16,7 +16,7 @@ const Sidebar = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/isAdmin", {
+    fetch("https://gentle-sands-61587.herokuapp.com/isAdmin", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email: loggedInUser.email }),
@@ -27,7 +27,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4"
+      className="sidebar d-flex flex-column justify-content-between col-3 col-sm-3 col-md-2 py-5 px-4"
       style={{ height: "100vh" }}
     >
       <ul className="list-unstyled">

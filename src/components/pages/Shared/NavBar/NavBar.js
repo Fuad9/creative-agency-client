@@ -5,7 +5,7 @@ import brandLogo from "../../../../images/logos/logo.png";
 
 const NavBar = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg">
       <Navbar.Brand>
         <NavLink to="/home">
           <img style={{ width: "200px" }} src={brandLogo} alt="" />
