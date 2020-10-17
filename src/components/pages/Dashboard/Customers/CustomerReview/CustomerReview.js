@@ -31,7 +31,7 @@ const CustomerReview = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result === true) {
-          history.push("/home");
+          alert("Reviews Sent Successfully");
         }
       });
   };

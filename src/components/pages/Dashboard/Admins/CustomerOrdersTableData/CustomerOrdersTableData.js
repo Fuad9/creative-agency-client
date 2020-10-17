@@ -1,6 +1,5 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import "./CustomerOrderTableData.css";
 
 const CustomerOrdersTableData = ({ order }) => {
   const handleStatus = (e) => {

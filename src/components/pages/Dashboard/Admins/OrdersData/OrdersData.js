@@ -4,7 +4,6 @@ import { AuthContext } from "../../../../../App";
 import Loading from "../../../../utilities/Loading";
 import Sidebar from "../../Sidebar/Sidebar";
 import CustomerOrdersTableData from "../CustomerOrdersTableData/CustomerOrdersTableData";
-import "./OrderData.css";
 
 const OrdersData = () => {
   const [ordersInfo, setOrdersInfo] = useState([]);

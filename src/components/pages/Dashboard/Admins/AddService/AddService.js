@@ -37,7 +37,7 @@ const AddService = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result === true) {
-          history.push("/home");
+          alert("Service Added Successfully");
         }
       });
   };
