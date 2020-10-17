@@ -18,7 +18,7 @@ const Slider = () => {
 
   return (
     <>
-      <section className=" mt-5">
+      <section className=" mt-5" id="portfolio">
         <div className="container-fluid worksInfo">
           <div className="text-center text-white pt-5">
             <h2>

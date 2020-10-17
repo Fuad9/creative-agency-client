@@ -3,7 +3,7 @@ import Footer from "../../Shared/Footer/Footer";
 import "./Contact.css";
 const Contact = () => {
   return (
-    <section className="contact my-5 py-5">
+    <section className="contact mt-5 py-5" id="contact">
       <div className="row container mx-auto">
         <div className="col-md-6 section-header mb-5">
           <h1>

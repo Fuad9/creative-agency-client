@@ -1,16 +1,12 @@
 import Axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import { AuthContext } from "../../../../App";
+import React, { useEffect, useState } from "react";
 import Loading from "../../../utilities/Loading";
 import SingleCustomerReviewCard from "../SingleCustomerReviewCard/SingleCustomerReviewCard";
 
 const SingleCustomerReview = () => {
   const [singleReview, setSingleReview] = useState([]);
-  const [loggedInUser] = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
 
-  // to show signle review
   useEffect(() => {
     const getData = async () => {
       try {
@@ -33,7 +29,7 @@ const SingleCustomerReview = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <div className="card-deck mt-5">
+          <div className="card-deck row mt-5">
             {singleReview.map((review) => (
               <SingleCustomerReviewCard review={review} key={review._id} />
             ))}

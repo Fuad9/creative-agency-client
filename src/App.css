@@ -1,7 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .btn-brand {
   background-color: #111430;
   color: #fff;
   border-color: transparent;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+.btn-brand:hover {
+  color: #fff !important;
 }

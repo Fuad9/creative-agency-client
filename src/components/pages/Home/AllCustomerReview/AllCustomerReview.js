@@ -1,7 +1,5 @@
 import Axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../../App";
-// import { CustomerReviewData } from "../../../../fakedata/CustomerReviewData";
+import React, { useEffect, useState } from "react";
 import Loading from "../../../utilities/Loading";
 import CustomerReviewCard from "../CustomerReviewCard/CustomerReviewCard";
 import SingleCustomerReview from "../SingleCustomerReview/SingleCustomerReview";
@@ -10,7 +8,6 @@ const AllCustomerReview = () => {
   const [reviewsInfo, setReviewsInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // to show all reviews
   useEffect(() => {
     const getData = async () => {
       try {
@@ -28,7 +25,7 @@ const AllCustomerReview = () => {
   }, []);
 
   return (
-    <section className="my-5">
+    <section className="my-5" id="review">
       <div className="container">
         <div className="section-header text-center">
           <h2>
@@ -38,7 +35,7 @@ const AllCustomerReview = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <div className="card-deck mt-5">
+          <div className="card-deck row mt-5">
             {reviewsInfo.map((review) => (
               <CustomerReviewCard review={review} key={review._id} />
             ))}

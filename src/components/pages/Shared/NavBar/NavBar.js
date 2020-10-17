@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Nav, Navbar, Button } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../../App";
 import brandLogo from "../../../../images/logos/logo.png";
 
 const NavBar = () => {
+  const [loggedInUser] = useContext(AuthContext);
+
   return (
-    <Navbar expand="lg">
+    <Navbar expand="lg mx-5">
       <Navbar.Brand>
         <NavLink to="/home">
           <img style={{ width: "200px" }} src={brandLogo} alt="" />
@@ -21,31 +24,23 @@ const NavBar = () => {
           >
             Home
           </NavLink>
-          <NavLink
-            to="/portfolio"
-            className="mr-5 text-dark"
-            activeStyle={{ borderBottom: "1px solid green" }}
-          >
+          <a href="#portfolio" className="mr-5 text-dark text-decoration-none">
             Our Portfolio
-          </NavLink>
-          <NavLink
-            to="/team"
-            className="mr-5 text-dark"
-            activeStyle={{ borderBottom: "1px solid green" }}
-          >
+          </a>
+          <a href="#team" className="mr-5 text-dark text-decoration-none">
             Our Team
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className="mr-5 text-dark"
-            activeStyle={{ borderBottom: "1px solid green" }}
-          >
+          </a>
+          <a href="#contact" className="mr-5 text-dark text-decoration-none">
             Contact Us
-          </NavLink>
+          </a>
+          {!loggedInUser ? (
+            <Link to="/login">
+              <Button className="btn-brand">Login</Button>
+            </Link>
+          ) : (
+            <p className="text-primary">{loggedInUser.name}</p>
+          )}
         </Nav>
-        <Link to="/login">
-          <Button className="btn-brand">Login</Button>
-        </Link>
       </Navbar.Collapse>
     </Navbar>
   );

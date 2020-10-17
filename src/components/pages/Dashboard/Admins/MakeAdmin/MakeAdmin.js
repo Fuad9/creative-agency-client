@@ -6,7 +6,9 @@ import Sidebar from "../../Sidebar/Sidebar";
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
   const history = useHistory();
-  const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
+  const [loggedInUser] = useContext(AuthContext);
+
+  document.title = "Make Admin";
 
   const handleBlur = (e) => {
     const newInfo = { ...email };
@@ -40,8 +42,6 @@ const MakeAdmin = () => {
           style={{
             position: "absolute",
             right: 0,
-            backgroundColor: "#E5E5E5",
-            height: "100vh",
           }}
         >
           <div className="d-flex justify-content-between">
@@ -49,19 +49,27 @@ const MakeAdmin = () => {
             <h4>{loggedInUser.name}</h4>
           </div>
           <div>
-            <h6 htmlFor="input">Email</h6>
-            <form onSubmit={handleSubmit} className="d-flex">
-              <input
-                onBlur={handleBlur}
-                type="email"
-                className="form-control"
-                name="email"
-                placeholder="join@gmail.com"
-              />
-              <button type="submit" className="btn btn-success">
-                Submit
-              </button>
-            </form>
+            <div
+              className="mt-5"
+              style={{
+                backgroundColor: "#F4FDFB",
+                height: "100vh",
+              }}
+            >
+              <h6 htmlFor="input">Email</h6>
+              <form onSubmit={handleSubmit} className="d-flex">
+                <input
+                  onBlur={handleBlur}
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  placeholder="join@gmail.com"
+                />
+                <button type="submit" className="btn btn-success">
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>

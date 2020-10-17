@@ -3,8 +3,6 @@ import Axios from "axios";
 import ServicesInfoCard from "../ServicesInfoCard/ServicesInfoCard";
 import Loading from "../../../utilities/Loading";
 import { ServiceContext } from "../../../../App";
-import { Link } from "react-router-dom";
-import SingleServiceInfo from "../SingleServiceInfo/SingleServiceInfo";
 
 const ServicesInfo = () => {
   const [servicesInfo, setServicesInfo] = useContext(ServiceContext);
@@ -52,14 +50,3 @@ const ServicesInfo = () => {
 };
 
 export default ServicesInfo;
-
-// // to insert all data
-// const handleTasks = () => {
-//   fetch("https://gentle-sands-61587.herokuapp.com/addServices", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(infosData),
-//   });
-// };

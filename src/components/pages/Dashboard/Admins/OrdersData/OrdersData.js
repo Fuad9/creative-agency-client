@@ -9,7 +9,9 @@ import "./OrderData.css";
 const OrdersData = () => {
   const [ordersInfo, setOrdersInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
+  const [loggedInUser] = useContext(AuthContext);
+
+  document.title = "All Customer Orders";
 
   useEffect(() => {
     const getData = async () => {
@@ -28,53 +30,61 @@ const OrdersData = () => {
   }, []);
 
   return (
-    <>
+    <section className="container-fluid row">
       <Sidebar />
-      <div className="ml-auto col-8 col-md-10 col-lg-10 mt-3">
-        <div className="d-flex justify-content-between">
+      <div className="ml-auto col-8 col-md-10 col-lg-10">
+        <div className="d-flex justify-content-between mt-4">
           <h5 className="text-brand">Order</h5>
           <h4>{loggedInUser.name}</h4>
         </div>
         {isLoading ? (
           <Loading />
         ) : (
-          <table className="table table-borderless">
-            <thead style={{ backgroundColor: "lightgray" }}>
-              <tr>
-                <th
-                  className="text-secondary"
-                  style={{ width: "10%" }}
-                  scope="col"
-                >
-                  Name
-                </th>
-                <th className="text-secondary" scope="col">
-                  Email ID
-                </th>
-                <th className="text-secondary" scope="col">
-                  Service
-                </th>
-                <th className="text-secondary" scope="col">
-                  Project Details
-                </th>
-                <th
-                  className="text-secondary"
-                  style={{ width: "8.3em" }}
-                  scope="col"
-                >
-                  Status
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {ordersInfo.map((order) => (
-                <CustomerOrdersTableData order={order} />
-              ))}
-            </tbody>
-          </table>
+          <div
+            className="mt-5"
+            style={{
+              backgroundColor: "#F4FDFB",
+              height: "100vh",
+            }}
+          >
+            <table className="table table-borderless">
+              <thead style={{ backgroundColor: "lightgray" }}>
+                <tr>
+                  <th
+                    className="text-secondary"
+                    style={{ width: "10%" }}
+                    scope="col"
+                  >
+                    Name
+                  </th>
+                  <th className="text-secondary" scope="col">
+                    Email ID
+                  </th>
+                  <th className="text-secondary" scope="col">
+                    Service
+                  </th>
+                  <th className="text-secondary" scope="col">
+                    Project Details
+                  </th>
+                  <th
+                    className="text-secondary"
+                    style={{ width: "8.3em" }}
+                    scope="col"
+                  >
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {ordersInfo.map((order) => (
+                  <CustomerOrdersTableData order={order} key={Math.random()} />
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
-    </>
+    </section>
   );
 };
 

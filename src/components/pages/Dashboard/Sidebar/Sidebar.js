@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Sidebar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AuthContext, ServiceContext } from "../../../../App";
+import { AuthContext } from "../../../../App";
 import orderIcon from "../../../../images/icons/shopping-cart.png";
 import logo from "../../../../images/logos/logo.png";
 import serviceIcon from "../../../../images/icons/Group 1360.png";
@@ -11,8 +10,7 @@ import plusIcon from "../../../../images/icons/plus 1.png";
 import peopleIcon from "../../../../images/icons/person-add-outline 1.png";
 
 const Sidebar = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
-  const [servicesInfo] = useContext(ServiceContext);
+  const [loggedInUser] = useContext(AuthContext);
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
@@ -33,7 +31,7 @@ const Sidebar = () => {
       <ul className="list-unstyled">
         <li>
           <Link to="/home">
-            <img src={logo} alt="" className="w-100" />
+            <img src={logo} alt="" className="w-100 mt-4" />
           </Link>
         </li>
         {isAdmin ? (

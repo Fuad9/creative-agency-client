@@ -11,7 +11,6 @@ import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 import AddService from "../pages/Dashboard/Admins/AddService/AddService";
 import MakeAdmin from "../pages/Dashboard/Admins/MakeAdmin/MakeAdmin";
 import CustomerReview from "../pages/Dashboard/Customers/CustomerReview/CustomerReview";
-import SingleCustomerReview from "../pages/Home/SingleCustomerReview/SingleCustomerReview";
 
 const Routes = () => {
   return (
@@ -48,13 +47,3 @@ const Routes = () => {
 };
 
 export default Routes;
-
-// <PrivateRoute path="/dashboard/doctors">
-//   <Dashboard/>
-// </PrivateRoute>
-// <PrivateRoute path="/dashboard/appointment">
-//   <DashboardAppointmentPage/>
-// </PrivateRoute>
-// <PrivateRoute path="/dashboard/patients">
-//   <Patients/>
-// </PrivateRoute>

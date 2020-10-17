@@ -5,7 +5,6 @@ import google from "../../../images/logos/GoogleIcon.png";
 import { handleGoogleSignIn, initializeLoginFramework } from "./LoginManager";
 import "./Login.css";
 import { AuthContext } from "../../../App";
-// import logo from "../../Images/logos/Group 1329.png";
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(AuthContext);
@@ -15,6 +14,8 @@ const Login = () => {
     email: "",
     photo: "",
   });
+
+  document.title = "Login";
 
   initializeLoginFramework();
 
@@ -43,15 +44,17 @@ const Login = () => {
           <img style={{ width: "200px" }} src={logo} alt="" />
         </Link>
       </div>
-      <div className="auth">
-        <p>Login With</p>
-        <img src={google} alt="" />
-        <div className="auth-button">
-          <button onClick={googleSignIn}>Continue with Google</button>
-          <p className="text-center mr-auto">
-            Don’t have an account?<Link to="/login"> Create an account</Link>
-          </p>
+      <div className="auth-container">
+        <div className="auth">
+          <h6>Login With</h6>
+          <div className="d-flex">
+            <img src={google} alt="" />
+            <button onClick={googleSignIn}>Continue with Google</button>
+          </div>
         </div>
+        <p>
+          Don’t have an account? <Link to="/login"> Create an account</Link>
+        </p>
       </div>
     </>
   );

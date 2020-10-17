@@ -8,7 +8,11 @@ import "./Clients.css";
 
 const Clients = () => {
   return (
-    <section className="row w-100 d-flex justify-content-center">
+    <section
+      className="row w-100 d-flex justify-content-center mt-5 h-50"
+      style={{ height: "100px" }}
+      id="team"
+    >
       <div className="col-4 col-md-2">
         <img className="img-fluid w-100 h-50" src={slack} alt="" />
       </div>

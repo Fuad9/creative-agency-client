@@ -5,11 +5,8 @@ import "./HeaderMain.css";
 
 const HeaderMain = () => {
   return (
-    <main
-      style={{ height: "600px" }}
-      className="row d-flex align-items-center header-bg"
-    >
-      <div className="col-md-4 col-sm-6 col-12 offset-md-1">
+    <main style={{ height: "700px" }} className="row d-flex header-bg mt-3">
+      <div className="col-md-4 col-sm-5 col-12 offset-md-1">
         <h1 style={{ color: "#111430" }}>
           Let's Grow Your
           <br /> Brand To The <br /> Next Level
@@ -22,7 +19,7 @@ const HeaderMain = () => {
           Hire us
         </Link>
       </div>
-      <div className="col-md-6 col-sm-6 col-12">
+      <div className="col-md-6 col-sm-7 col-12">
         <img src={headerImg} alt="" className="img-fluid" />
       </div>
     </main>

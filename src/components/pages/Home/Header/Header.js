@@ -9,7 +9,6 @@ const Header = () => {
     <div className="header-container">
       <NavBar />
       <HeaderMain />
-      <Clients />
     </div>
   );
 };

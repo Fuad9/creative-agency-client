@@ -1,39 +1,34 @@
-.auth {
-  position: absolute;
+.auth-container {
   width: 570px;
   height: 457px;
-  left: 435px;
-  top: 171px;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 100px;
   background: #ffffff;
   border: 1px solid #ababab;
   box-sizing: border-box;
   border-radius: 4px;
+  text-align: center;
 }
 
-.auth p {
-  position: absolute;
-  height: 29px;
-  left: 40%;
-  /* right: %; */
-  top: 75px;
+.auth {
+  margin-top: 140px;
+  margin-left: 60px;
+  margin-bottom: 25px;
+}
+
+.auth h6 {
+  margin-bottom: 20px;
+  margin-left: -70px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 29px;
-  color: #000000;
 }
 
-.auth-button {
-  position: absolute;
-  width: 457px;
-  height: 160px;
-  margin: 154px 57px 155px 56px;
-}
-
-.auth-button button {
+.auth button {
   outline: none;
-  position: absolute;
   width: 457px;
   height: 51px;
   background: #ffffff;
@@ -43,9 +38,9 @@
 }
 
 .auth img {
-  margin: 165px 476px 200.26px 63px;
-  position: absolute;
   width: 31px;
   height: 31.74px;
-  z-index: 1;
+  margin-right: -40px;
+  margin-top: 9px;
+  z-index: 5;
 }
