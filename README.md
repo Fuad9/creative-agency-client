@@ -5,6 +5,8 @@
 Live: [Click here](https://creative-agency-dc106.web.app/)
 <br />
 Code: [Server](https://github.com/Fuad9/creative-agency-server)
+<br />
+Resume: [Click here](https://drive.google.com/file/d/1mfl4mCKZxq-pfXHjtHf1CU-Fgbjs3x5G/view?usp=sharing)
 
 ## About this Project
 
